@@ -1,0 +1,9 @@
+#home {
+  height: 92vh;
+  background-image: url("src/assets/imagenes/main2.png");
+  background-size: 100%;
+}
+
+.icon-color-custom {
+  color: #46a29f;
+}
