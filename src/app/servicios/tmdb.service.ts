@@ -11,6 +11,6 @@ export class TmdbService {
   constructor(private http:HttpClient) { }
 
   buscarPopulares(tipo:string):Observable<any>{
-    return this.http.get(url+'movie/popular'+api+'&language=es');
+    return this.http.get(url+tipo+'/popular'+api+'&language=es');
   }
 }

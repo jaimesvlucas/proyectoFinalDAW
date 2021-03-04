@@ -1,7 +1,29 @@
-<div class="container-fluid">
+<div class="container-fluid customBackground">
+    <h6 class="text-white my-3 mx-2">Peliculas Populares <i class="fas fa-chevron-right"></i></h6>
     <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
-        <div class="col">
-            <input (input)="buscar()" class="form-control" type="text" [(ngModel)]='busqueda' placeholder="Buscar">
+        <div class="col my-2" *ngFor='let i of [0,1,2,3]'>
+            <div class="card contenedor" style="width: 16rem;">
+                <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+                <img src="{{imageUrl}}{{popularPeliculas[i].backdrop_path}}" class="card-img-top" alt="">
+                <div class="card-body tag">
+                  <p class="card-title my-1">{{popularPeliculas[i].title}}<br>{{popularPeliculas[i].release_date}}</p>
+                </div>
+              </div>       
         </div>
+        <div class="col mx-3 text-white"><i class="fas fa-plus fa-2x"></i></div>
     </div>
+    <h6 class="text-white my-3 mx-2">Series Populares <i class="fas fa-chevron-right"></i></h6>
+    <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
+      <div class="col my-2" *ngFor='let i of [0,1,2,3]'>
+          <div class="card contenedor" style="width: 16rem;">
+              <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+              <img src="{{imageUrl}}{{popularSeries[i].backdrop_path}}" class="card-img-top" alt="">
+              <div class="card-body tag">
+                <p class="card-title my-1">{{popularSeries[i].title}}<br>{{popularSeries[i].release_date}}</p>
+              </div>
+            </div>       
+      </div>
+      <div class="col mx-3 text-white"><i class="fas fa-plus fa-2x"></i></div>
+  </div>
 </div>
+
