@@ -19,7 +19,36 @@
               <span class="flecha"><i class="fas fa-chevron-down"></i></span>
               <img src="{{imageUrl}}{{popularSeries[i].backdrop_path}}" class="card-img-top" alt="">
               <div class="card-body tag">
-                <p class="card-title my-1">{{popularSeries[i].title}}<br>{{popularSeries[i].release_date}}</p>
+                <p class="card-title my-1">{{popularSeries[i].name}}<br>{{popularSeries[i].first_air_date}}</p>
+              </div>
+            </div>       
+      </div>
+      <div class="col mx-3 text-white"><i class="fas fa-plus fa-2x"></i></div>
+  </div>
+  <h6 class="text-white my-3 mx-2">Peliculas Mejor Valoradas <i class="fas fa-chevron-right"></i></h6>
+    <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
+      <div class="col my-2" *ngFor='let i of [0,1,2,3]'>
+          <div class="card contenedor" style="width: 16rem;">
+              <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+              <img src="{{imageUrl}}{{mejorValoradaPeliculas[i].backdrop_path}}" class="card-img-top" alt="">
+              <div class="card-body tag">
+                <p class="card-title my-1">{{mejorValoradaPeliculas[i].title}}<br>{{mejorValoradaPeliculas[i].release_date}}
+                  <span class="nota"><i class="far fa-star"></i>{{mejorValoradaPeliculas[i].vote_average}}</span></p>
+              </div>
+            </div>       
+      </div>
+      <div class="col mx-3 text-white"><i class="fas fa-plus fa-2x"></i></div>
+  </div>
+  <h6 class="text-white my-3 mx-2">Series Mejor Valoradas <i class="fas fa-chevron-right"></i></h6>
+    <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
+      <div class="col my-2" *ngFor='let i of [0,1,2,3]'>
+          <div class="card contenedor" style="width: 16rem;">
+              <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+              <img *ngIf='mejorValoradaSeries[i].backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{mejorValoradaSeries[i].backdrop_path}}" class="card-img-top" alt="">
+              <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
+              <div class="card-body tag">
+                <p class="card-title my-1">{{mejorValoradaSeries[i].name}}<br>{{mejorValoradaSeries[i].first_air_date}}
+                  <span class="nota"><i class="far fa-star"></i>{{mejorValoradaSeries[i].vote_average}}</span></p>
               </div>
             </div>       
       </div>

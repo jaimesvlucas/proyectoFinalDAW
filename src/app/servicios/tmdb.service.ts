@@ -13,4 +13,7 @@ export class TmdbService {
   buscarPopulares(tipo:string):Observable<any>{
     return this.http.get(url+tipo+'/popular'+api+'&language=es');
   }
+  buscarMejorValoradas(tipo:string):Observable<any>{
+    return this.http.get(url+tipo+'/top_rated'+api+'&language=es');
+  }
 }
