@@ -1,0 +1,36 @@
+<div class="container-fluid customBackground text-white d-flex justify-content-center ">
+  <div class="row mx-2 my-5">
+    <div class="col">
+      <div class="container text-center">
+        <img class='my-4' src="{{imageUrl}}{{pelicula.backdrop_path}}" alt="">
+          <div class="btn btn-dark form-control">Marcar como</div>
+      </div>
+    </div>
+    <div class="col my-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h4>{{pelicula.title}} ({{pelicula.release_date.substring(0,4)}})</h4>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h6><span *ngFor='let genero of pelicula.genres'>{{genero.name}} - </span> {{pelicula.runtime | minutosHoras}}</h6>
+      </div>
+      <div class="container my-4">
+        <h6>Puntuacion media: {{pelicula.vote_average}}<i class="far fa-star colorCustom"></i></h6>
+      </div>
+      <div class="container">
+        <h6>Resumen</h6>
+        <p>{{pelicula.overview}}</p>
+      </div>
+      <div class="container">
+        <h6>Productoras:</h6>
+        <ul class="list-group list-group-flush">
+          <li style="list-style: none;" *ngFor='let productora of pelicula.production_companies; let ultimo=last'>{{productora.name}}</li>
+        </ul>
+      </div>
+      <!-- Mostrar peliculas similares -->
+    </div>
+  </div>
+</div>

@@ -16,4 +16,7 @@ export class TmdbService {
   buscarMejorValoradas(tipo:string):Observable<any>{
     return this.http.get(url+tipo+'/top_rated'+api+'&language=es');
   }
+  buscarPelicula(id):Observable<any>{
+    return this.http.get(url+'movie/'+id+api+'&language=es');
+  }
 }

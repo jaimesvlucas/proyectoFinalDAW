@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TmdbService } from 'src/app/servicios/tmdb.service'; 
 @Component({
   selector: 'app-buscador',
@@ -7,12 +8,11 @@ import { TmdbService } from 'src/app/servicios/tmdb.service';
 })
 export class BuscadorComponent implements OnInit {
   imageUrl='https://image.tmdb.org/t/p/w300';
-  busqueda:string;
   popularPeliculas:any[]=[];
   popularSeries:any[]=[];
   mejorValoradaPeliculas:any[]=[];
   mejorValoradaSeries:any[]=[];
-  constructor(private tmdb:TmdbService) { }
+  constructor(private tmdb:TmdbService, private irHacia:Router) { }
 
   ngOnInit(): void {
     this.popular('movie');
@@ -41,5 +41,13 @@ export class BuscadorComponent implements OnInit {
       },
       error=>console.log(error)
     )
+  }
+
+  verPelicula(id):void{
+    this.irHacia.navigate(['/buscar/pelicula/'+id])
+  }
+
+  verSerie(id):void{
+    this.irHacia.navigate(['/buscar/series/'+id])
   }
 }
