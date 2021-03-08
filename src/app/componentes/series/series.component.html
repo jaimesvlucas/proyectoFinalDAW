@@ -1,1 +1,60 @@
-<p>series works!</p>
+<div class="container-fluid customBackground text-white d-flex justify-content-center ">
+  <div class="row mx-2 my-5">
+    <div class="col">
+      <div class="container text-center">
+        <img class='my-4' src="{{imageUrl}}{{serie.backdrop_path}}" alt="">
+          <div class="btn btn-dark form-control">Marcar como</div>
+      </div>
+    </div>
+    <div class="col my-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h4>{{serie.title}} ({{serie.release_date.substring(0,4)}})</h4>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h6><span *ngFor='let genero of serie.genres'>{{genero.name}} - </span> {{serie.runtime | minutosHoras}}</h6>
+      </div>
+      <div class="container my-4">
+        <h6>Puntuacion media: {{serie.vote_average}}<i class="far fa-star colorCustom"></i></h6>
+      </div>
+      <div class="container my-2">
+        <h6>Resumen</h6>
+        <p>{{serie.overview}}</p>
+      </div>
+      <div class="container my-2">
+        <div class="row">
+          <div class="col">
+            <h6>Dirigida por:</h6>
+            <ul class="list-group list-group-flush">
+              <li style="list-style: none;" *ngFor='let crew of creditos.crew'>
+                <span *ngIf='crew.job=="Director"'>{{crew.name}}</span>
+              </li>
+            </ul>
+            <br>
+            <h6>Escrita por:</h6>
+            <ul class="list-group list-group-flush">
+              <li style="list-style: none;" *ngFor='let crew of creditos.crew'>
+                <span *ngIf='crew.department=="Writing"'>{{crew.name}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Actores principales:</h6>
+            <ul class="list-group list-group-flush">
+              <li style="list-style: none;" *ngFor='let i of [0,1,2,3,4,5,6,7,8,9]'>{{creditos.cast[i].original_name}}</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Productoras:</h6>
+            <ul class="list-group list-group-flush">
+              <li style="list-style: none;" *ngFor='let productora of serie.production_companies'>{{productora.name}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

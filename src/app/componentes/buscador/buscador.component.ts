@@ -48,6 +48,6 @@ export class BuscadorComponent implements OnInit {
   }
 
   verSerie(id):void{
-    this.irHacia.navigate(['/buscar/series/'+id])
+    this.irHacia.navigate(['/buscar/serie/'+id])
   }
 }

@@ -9,14 +9,15 @@ import { TmdbService } from 'src/app/servicios/tmdb.service';
 })
 export class PeliculaComponent implements OnInit {
   imageUrl='https://image.tmdb.org/t/p/w780';
-  imageUrlLogo='https://image.tmdb.org/t/p/w154';
   pelicula:any;
+  creditos:any;
   id:string;
   constructor(private tmdb:TmdbService, private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.rutaActiva.snapshot.paramMap.get("id");
     this.buscarPelicula();
+    this.buscarCreditos();
   }
 
   buscarPelicula(){
@@ -24,6 +25,16 @@ export class PeliculaComponent implements OnInit {
       respuesta=>{
         console.log(respuesta)
         this.pelicula=respuesta;
+      },
+      error=>console.log(error)
+    )
+  }
+
+  buscarCreditos(){
+    this.tmdb.buscarCreditosPeliculas(this.id).subscribe(
+      respuesta=>{
+        console.log(respuesta);
+        this.creditos = respuesta;
       },
       error=>console.log(error)
     )

@@ -19,4 +19,13 @@ export class TmdbService {
   buscarPelicula(id):Observable<any>{
     return this.http.get(url+'movie/'+id+api+'&language=es');
   }
+  buscarCreditosPeliculas(id):Observable<any>{
+    return this.http.get(url+'movie/'+id+'/credits'+api+'&language=es');
+  }
+  buscarSerie(id):Observable<any>{
+    return this.http.get(url+'tv/'+id+api+'&language=es'); 
+  }
+  buscarCreditosSeries(id):Observable<any>{
+    return this.http.get(url+'tv/'+id+'/credits'+api+'&language=es');
+  }
 }
