@@ -3,20 +3,34 @@
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/buscador">Buscador</a>
-            </li>
+            <ng-template [ngIf]='!fnLogged()' [ngIfElse]='buscador'>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive routerLink="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ng-template>
+            <ng-template #buscador>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive routerLink="/buscador">Buscador</a>
+                </li>
+            </ng-template>
         </ul>
         <ul class="navbar-nav mt-2 mt-lg-0">
-            <li>
-                <a class="nav-link" routerLink="/login">Log in</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/registro">Registro</a>
-            </li>
+            <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive routerLink="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive routerLink="/registro">Registro</a>
+                </li>
+            </ng-template>
+            <ng-template #salir>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive routerLink="/perfil"><i class="far fa-user-circle"></i> Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='doLogout()' routerLink="."><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ng-template>
         </ul>
     </div>
 </nav>

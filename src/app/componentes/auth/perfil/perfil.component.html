@@ -1,0 +1,60 @@
+<div class="conatiner text-white">
+  <div class="row mx-2 my-2" *ngIf='respuestaCreada && mensaje!=null'>
+      <div class="col">
+        <div class="alert alert-success">
+          <p>{{mensaje}}</p>
+      </div>
+      </div>
+    </div>
+    <div class="row mx-2 my-2" *ngIf='errorRespuesta && mensaje!=null'>
+      <div class="col">
+        <div class="alert alert-danger">
+          <p>{{mensaje}}</p>
+      </div>
+      </div>
+    </div>
+  <div class="row mx-2 my-2">
+      <div class="col-2">
+        <div class="my-2">
+          <img class="circular" src='{{perfil.imgSrc}}' width='200px' height="200px">
+        </div>
+      </div>
+      <div class="col-6 my-2 d-flex align-items-center">
+          <div>
+            <h3>{{this.perfil.nombre}} {{this.perfil.apellidos}} </h3>
+            <h5>{{this.perfil.email}}</h5>
+            <button class="mr-2 my-2 btn btn-dark" (click)='editar=!editar'>Editar</button>
+            <button class="mr-2 my-2 btn btn-dark" (click)='borrar=!borrar'>Borrar</button>
+          </div>
+      </div>
+      <div class="col-3 my-2">
+          <h4>Subir imagen</h4>
+          <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+              <input class="form-control" type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
+              <button class="my-3 btn btn-dark" type='submit'>Subir imagen de perfil</button>
+          </form>
+      </div>
+  </div>
+  <div class="row mx-2 my-2" *ngIf='editar'>
+      <div class="col-6">
+        <h4>Editar perfil</h4>
+          <form [formGroup]="formPerfil" (submit)="submit()">
+              <input class="form-control" type="text" formControlName="nombre" [(ngModel)]="this.perfil.nombre" placeholder="nombre"><br>
+              <input class="form-control" type="text" formControlName="apellidos" [(ngModel)]="this.perfil.apellidos" placeholder="apellido"><br>
+              <input class="form-control" type="text" formControlName="email" [(ngModel)]="this.perfil.email" placeholder="email"><br>
+              <input class="form-control" type="number" formControlName="telefono"[(ngModel)]="this.perfil.telefono" placeholder="telefono"><br>
+              <button class="btn btn-dark" type="submit" [disabled]="!formPerfil.valid" >Editar</button>
+              <button class="btn btn-danger" (click)='editar=!editar'>Cancelar</button>
+          </form>
+      </div>
+  </div>
+  <div class="row mx-2 my-2" *ngIf='borrar'>
+      <div class="col-6">
+          <h5>Quieres borrar el usuario {{this.perfil.email}} </h5>
+          <p>Introduce tu email para borrar</p>
+          <input type="text" class="form-control" [(ngModel)]='inputBorrar'>
+          <button [disabled]='inputBorrar!=this.perfil.email' class="btn btn-dark" (click)='borrarUsuario()'>Borrar</button>
+          <button class="btn btn-danger" (click)='borrar=!borrar;inputBorrar="";'>Cancelar</button>
+      </div>
+  </div>
+</div>

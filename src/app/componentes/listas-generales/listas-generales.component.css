@@ -1,0 +1,40 @@
+.defaultImageSize {
+  height: 429px;
+}
+.customBackground {
+  background-color: #202833;
+  min-height: 92vh;
+}
+.flecha {
+  color: white;
+  float: right;
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  z-index: 10;
+}
+
+.nota {
+  float: right;
+  color: white;
+}
+
+.contenedor {
+  position: relative;
+}
+.tag {
+  float: left;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 10;
+  background-color: black;
+  opacity: 0.7;
+  padding: 2.5px;
+  color: #ffffff;
+  font-weight: bold;
+  width: 100%;
+}
+.tag:hover {
+  opacity: 0.9;
+}

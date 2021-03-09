@@ -24,7 +24,6 @@ export class BuscadorComponent implements OnInit {
   popular(tipo:string):void{
     this.tmdb.buscarPopulares(tipo).subscribe(
       respuesta=>{
-        console.log(respuesta)
         if(tipo=='movie')this.popularPeliculas = respuesta.results
         else this.popularSeries = respuesta.results
       },
@@ -35,7 +34,6 @@ export class BuscadorComponent implements OnInit {
   mejorValorada(tipo:string):void{
     this.tmdb.buscarMejorValoradas(tipo).subscribe(
       respuesta=>{
-        console.log(respuesta)
         if(tipo=='movie')this.mejorValoradaPeliculas = respuesta.results
         else this.mejorValoradaSeries = respuesta.results
       },
@@ -49,5 +47,9 @@ export class BuscadorComponent implements OnInit {
 
   verSerie(id):void{
     this.irHacia.navigate(['/buscar/serie/'+id])
+  }
+
+  verLista(tipo,atributo):void{
+    this.irHacia.navigate(['/listar/'+tipo+'/'+atributo])
   }
 }

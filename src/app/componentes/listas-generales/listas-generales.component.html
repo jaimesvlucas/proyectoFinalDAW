@@ -1,0 +1,76 @@
+<div class="container-fluid customBackground text-white">
+  <ng-container [ngSwitch]="tipo">
+    <some-element *ngSwitchCase="'movie'">
+      <ng-container [ngSwitch]="atributo">
+        <some-element *ngSwitchCase="'popular'"> 
+          <h6 class="text-white my-3 mx-2">Peliculas Populares <i class="fas fa-chevron-right"></i></h6>
+          <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
+            <div class="col my-2" *ngFor='let pelicula of popularPeliculas'>
+                <div class="card contenedor" style="width: 16rem;">
+                    <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+                    <img *ngIf='pelicula.backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{pelicula.backdrop_path}}" class="card-img-top" alt="">
+                    <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
+                    <div class="card-body tag" (click)='verPelicula(pelicula.id)'>
+                      <p class="card-title my-1">{{pelicula.title}}<br>{{pelicula.release_date}}</p>
+                    </div>
+                </div>       
+            </div>
+          </div>  
+        </some-element>
+        <some-element *ngSwitchCase="'mejor'">
+          <h6 class="text-white my-3 mx-2">Peliculas Mejor Valoradas <i class="fas fa-chevron-right"></i></h6>
+          <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
+            <div class="col my-2" *ngFor='let pelicula of mejorValoradaPeliculas'>
+                <div class="card contenedor" style="width: 16rem;">
+                    <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+                    <img *ngIf='pelicula.backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{pelicula.backdrop_path}}" class="card-img-top" alt="">
+                    <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
+                    <div class="card-body tag" (click)='verPelicula(pelicula.id)'>
+                      <p class="card-title my-1">{{pelicula.title}}<br>{{pelicula.release_date}}
+                        <span class="nota"><i class="far fa-star"></i>{{pelicula.vote_average}}</span></p>
+                    </div>
+                  </div>       
+            </div>
+        </div>
+        </some-element>
+      </ng-container>
+    </some-element>
+    <some-element *ngSwitchCase="'serie'">
+      <ng-container [ngSwitch]="atributo">
+        <some-element *ngSwitchCase="'popular'">
+          <h6 class="text-white my-3 mx-2">Series Populares <i class="fas fa-chevron-right"></i></h6>
+          <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
+            <div class="col my-2" *ngFor='let serie of popularSeries'>
+                <div class="card contenedor" style="width: 16rem;">
+                    <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+                    <img *ngIf='serie.backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{serie.backdrop_path}}" class="card-img-top" alt="">
+                    <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
+                    <div class="card-body tag" (click)='verSerie(serie.id)'>
+                      <p class="card-title my-1">{{serie.name}}<br>{{serie.first_air_date}}</p>
+                    </div>
+                  </div>       
+            </div>
+          </div>
+        </some-element>
+        <some-element *ngSwitchCase="'mejor'">
+          <h6 class="text-white my-3 mx-2">Series Mejor Valoradas <i class="fas fa-chevron-right"></i></h6>
+          <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
+            <div class="col my-2" *ngFor='let serie of mejorValoradaSeries'>
+                <div class="card contenedor" style="width: 16rem;">
+                    <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+                    <img *ngIf='serie.backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{serie.backdrop_path}}" class="card-img-top" alt="">
+                    <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
+                    <div class="card-body tag" (click)='verSerie(serie.id)'>
+                      <p class="card-title my-1">{{serie.name}}<br>{{serie.first_air_date}}
+                        <span class="nota"><i class="far fa-star"></i>{{serie.vote_average}}</span></p>
+                    </div>
+                  </div>       
+            </div>
+        </div>
+        </some-element>
+      </ng-container>
+    </some-element>
+  </ng-container>
+</div>
+
+
