@@ -8,6 +8,7 @@ import { LoginComponent } from './componentes/auth/login/login.component';
 import { RegisterComponent } from './componentes/auth/register/register.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { ListasGeneralesComponent } from './componentes/listas-generales/listas-generales.component';
+import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: "perfil", component:PerfilComponent},
   {path: "buscar/pelicula/:id", component:PeliculaComponent},
   {path: "buscar/serie/:id", component:SeriesComponent},
+  {path: "busqueda/:query", component:BusquedaComponent},
   {path: "listar/:tipo/:atributo", component:ListasGeneralesComponent}
 ];
 

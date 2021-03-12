@@ -28,4 +28,7 @@ export class TmdbService {
   buscarCreditosSeries(id):Observable<any>{
     return this.http.get(url+'tv/'+id+'/credits'+api+'&language=es');
   }
+  realizarBusqueda(busqueda,tipo):Observable<any>{
+    return this.http.get(url+'search/'+tipo+api+'&language=es&query='+busqueda);
+  }
 }

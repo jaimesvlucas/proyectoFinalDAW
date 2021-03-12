@@ -9,6 +9,7 @@ import { UserService } from 'src/app/servicios/user.service';
 })
 export class NavegacionComponent implements OnInit {
 
+  busqueda:string;
   constructor(private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
@@ -21,5 +22,9 @@ export class NavegacionComponent implements OnInit {
 
   fnLogged():boolean{
     return this.servicioUsuario.isLogged();
+  }
+
+  realizarBusqueda():void{
+    this.irHacia.navigate(['busqueda/'+this.busqueda]);
   }
 }

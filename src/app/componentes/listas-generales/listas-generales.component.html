@@ -1,8 +1,8 @@
 <div class="container-fluid customBackground text-white">
   <ng-container [ngSwitch]="tipo">
-    <some-element *ngSwitchCase="'movie'">
+    <div *ngSwitchCase="'movie'">
       <ng-container [ngSwitch]="atributo">
-        <some-element *ngSwitchCase="'popular'"> 
+        <div *ngSwitchCase="'popular'"> 
           <h6 class="text-white my-3 mx-2">Peliculas Populares <i class="fas fa-chevron-right"></i></h6>
           <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
             <div class="col my-2" *ngFor='let pelicula of popularPeliculas'>
@@ -16,8 +16,8 @@
                 </div>       
             </div>
           </div>  
-        </some-element>
-        <some-element *ngSwitchCase="'mejor'">
+        </div>
+        <div *ngSwitchCase="'mejor'">
           <h6 class="text-white my-3 mx-2">Peliculas Mejor Valoradas <i class="fas fa-chevron-right"></i></h6>
           <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
             <div class="col my-2" *ngFor='let pelicula of mejorValoradaPeliculas'>
@@ -32,12 +32,12 @@
                   </div>       
             </div>
         </div>
-        </some-element>
+      </div>
       </ng-container>
-    </some-element>
-    <some-element *ngSwitchCase="'serie'">
+    </div>
+    <div *ngSwitchCase="'serie'">
       <ng-container [ngSwitch]="atributo">
-        <some-element *ngSwitchCase="'popular'">
+        <div *ngSwitchCase="'popular'">
           <h6 class="text-white my-3 mx-2">Series Populares <i class="fas fa-chevron-right"></i></h6>
           <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
             <div class="col my-2" *ngFor='let serie of popularSeries'>
@@ -51,8 +51,8 @@
                   </div>       
             </div>
           </div>
-        </some-element>
-        <some-element *ngSwitchCase="'mejor'">
+        </div>
+        <div *ngSwitchCase="'mejor'">
           <h6 class="text-white my-3 mx-2">Series Mejor Valoradas <i class="fas fa-chevron-right"></i></h6>
           <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
             <div class="col my-2" *ngFor='let serie of mejorValoradaSeries'>
@@ -67,9 +67,9 @@
                   </div>       
             </div>
         </div>
-        </some-element>
+        </div>
       </ng-container>
-    </some-element>
+    </div>
   </ng-container>
 </div>
 

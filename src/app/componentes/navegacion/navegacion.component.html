@@ -14,6 +14,11 @@
                 </li>
             </ng-template>
         </ul>
+        <span text-white>{{busqueda}}</span>
+        <div class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search"  [(ngModel)]='busqueda'>
+            <button class="btn btn-outline-dark customBorder my-2 my-sm-0" type="submit" (click)='realizarBusqueda()'>Search</button>
+        </div>
         <ul class="navbar-nav mt-2 mt-lg-0">
             <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
                 <li class="nav-item">

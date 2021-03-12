@@ -15,6 +15,7 @@ import { RegisterComponent } from './componentes/auth/register/register.componen
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { ListasGeneralesComponent } from './componentes/listas-generales/listas-generales.component';
+import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListasGeneralesComponent } from './componentes/listas-generales/listas-
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    ListasGeneralesComponent
+    ListasGeneralesComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,
