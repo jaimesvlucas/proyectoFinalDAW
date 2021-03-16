@@ -2,9 +2,16 @@
   <div class="row mx-2 my-5">
     <div class="col">
       <div class="container text-center">
-        <img *ngIf='serie.backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{serie.backdrop_path}}" class="card-img-top" alt="">
-              <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
-          <div class="btn btn-dark form-control">Marcar como</div>
+        <img *ngIf='serie.backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{serie.backdrop_path}}" class="my-4" alt="">
+        <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
+        <div class="container">
+          <button type="button" class="btn btn-dark form-control dropdown-toggle" data-toggle="dropdown">Marcar como</button>
+          <div class="dropdown-menu bg-dark  white-text text-center">
+            <div class="dropdown-item">Pendiente</div>
+            <div class="dropdown-item">Siguiendo</div>
+            <div class="dropdown-item">Vista</div>
+          </div>
+        </div> 
       </div>
     </div>
     <div class="col my-3">

@@ -3,7 +3,13 @@
     <div class="col">
       <div class="container text-center">
         <img class='my-4' src="{{imageUrl}}{{pelicula.backdrop_path}}" alt="">
-          <div class="btn btn-dark form-control">Marcar como</div>
+        <div class="container">
+          <button type="button" class="btn btn-dark form-control dropdown-toggle" data-toggle="dropdown">Marcar como</button>
+          <div class="dropdown-menu bg-dark  white-text text-center">
+            <div class="dropdown-item">Pendiente</div>
+            <div class="dropdown-item">Vista</div>
+          </div>
+        </div> 
       </div>
     </div>
     <div class="col my-3">

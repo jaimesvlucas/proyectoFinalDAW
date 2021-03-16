@@ -3,7 +3,13 @@
     <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
         <div class="col my-2" *ngFor='let i of [0,1,2,3,4]'>
             <div class="card contenedor" style="width: 16rem;">
-                <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+                <div>
+                  <button type="button" class="flecha dropdown-toggle" data-toggle="dropdown"></button>
+                  <div class="dropdown-menu bg-dark  white-text text-center">
+                    <div class="dropdown-item">Pendiente</div>
+                    <div class="dropdown-item">Vista</div>
+                  </div>
+                </div> 
                 <img *ngIf='popularPeliculas[i].backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{popularPeliculas[i].backdrop_path}}" class="card-img-top" alt="">
                 <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
                 <div class="card-body tag" (click)='verPelicula(popularPeliculas[i].id)'>
@@ -17,7 +23,14 @@
     <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
       <div class="col my-2" *ngFor='let i of [0,1,2,3,4]'>
           <div class="card contenedor" style="width: 16rem;">
-              <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+            <div>
+              <button type="button" class="flecha dropdown-toggle" data-toggle="dropdown"></button>
+              <div class="dropdown-menu bg-dark  white-text text-center">
+                <div class="dropdown-item">Pendiente</div>
+                <div class="dropdown-item">Siguiendo</div>
+                <div class="dropdown-item">Vista</div>
+              </div>
+            </div> 
               <img *ngIf='popularSeries[i].backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{popularSeries[i].backdrop_path}}" class="card-img-top" alt="">
               <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
               <div class="card-body tag" (click)='verSerie(popularSeries[i].id)'>
@@ -31,7 +44,13 @@
     <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
       <div class="col my-2" *ngFor='let i of [0,1,2,3,4]'>
           <div class="card contenedor" style="width: 16rem;">
-              <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+            <div>
+              <button type="button" class="flecha dropdown-toggle" data-toggle="dropdown"></button>
+              <div class="dropdown-menu bg-dark  white-text text-center">
+                <div class="dropdown-item">Pendiente</div>
+                <div class="dropdown-item">Vista</div>
+              </div>
+            </div> 
               <img *ngIf='mejorValoradaPeliculas[i].backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{mejorValoradaPeliculas[i].backdrop_path}}" class="card-img-top" alt="">
                 <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
               <div class="card-body tag" (click)='verPelicula(mejorValoradaPeliculas[i].id)'>
@@ -46,7 +65,14 @@
     <div class="row d-flex justify-content-center align-items-center mx-2 my-2 h-25">
       <div class="col my-2" *ngFor='let i of [0,1,2,3,4]'>
           <div class="card contenedor" style="width: 16rem;">
-              <span class="flecha"><i class="fas fa-chevron-down"></i></span>
+            <div>
+              <button type="button" class="flecha dropdown-toggle" data-toggle="dropdown"></button>
+              <div class="dropdown-menu bg-dark  white-text text-center">
+                <div class="dropdown-item">Pendiente</div>
+                <div class="dropdown-item">Siguiendo</div>
+                <div class="dropdown-item">Vista</div>
+              </div>
+            </div> 
               <img *ngIf='mejorValoradaSeries[i].backdrop_path!=null; else elseBlock' src="{{imageUrl}}{{mejorValoradaSeries[i].backdrop_path}}" class="card-img-top" alt="">
               <ng-template #elseBlock> <img src="assets/imagenes/errorImage.png" class="card-img-top" alt=""> </ng-template>
               <div class="card-body tag" (click)='verSerie(mejorValoradaSeries[i].id)'>

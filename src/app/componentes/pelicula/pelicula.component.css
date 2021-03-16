@@ -5,3 +5,16 @@
 .colorCustom {
   color: #66fcf1;
 }
+
+.dropdown-menu{
+  width: 90%;
+}
+
+.dropdown-item{
+  color: white;
+}
+
+.dropdown-item:hover{
+  color: black;
+  background-color:#C5C6C8;
+}
