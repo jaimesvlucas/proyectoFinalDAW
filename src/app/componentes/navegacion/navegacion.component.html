@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-custom">
-    <a class="navbar-brand" routerLink="/">TO WATCH<span class="color-custom">LIST</span></a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom text-white">
+    <a class="navbar-brand">TO WATCH<span class="color-custom">LIST</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav mr-auto">
             <ng-template [ngIf]='!fnLogged()' [ngIfElse]='buscador'>
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive routerLink="/">Home <span class="sr-only">(current)</span></a>
@@ -18,7 +20,7 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Search"  [(ngModel)]='busqueda'>
             <button class="btn btn-outline-dark customBorder my-2 my-sm-0" type="submit" (click)='realizarBusqueda()'>Search</button>
         </div>
-        <ul class="navbar-nav mt-2 mt-lg-0">
+        <ul class="navbar-nav">
             <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive routerLink="/login">Login</a>

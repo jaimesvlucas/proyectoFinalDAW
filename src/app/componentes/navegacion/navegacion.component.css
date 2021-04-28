@@ -11,3 +11,8 @@
   border-color: #66fcf1;
   color: #66fcf1;
 }
+
+#collapsibleNavId{
+  z-index: +20;
+  background-color: #0b0c10;
+}
